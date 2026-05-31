@@ -59,21 +59,20 @@
 ### 명령어 처리 5단계
 
 ```
-FETCH → DECODE → EXECUTE → MEMORY → WRITE BACK
+Instruction FETCH → Instruction DECODE → EXECUTE → MEMORY → WRITE BACK
 ```
+
+| 단계 | 동작 |
+|------|------|
+| Instruction FETCH | pc_en 발생, ROM에서 명령어 가져오기 |
+| Instruction DECODE | 명령어 해독, IMM Extend |
+| EXECUTE | ALU 연산 및 비교, 다음 PC 값 계산, R/I/U/J/JL Type Write Back |
+| MEMORY | S-Type: RAM Write / IL-Type: RAM Read |
+| WRITE BACK | IL-Type Write Back |
 
 **명령어 Type별 동작 흐름도**
 
 <img width="890" height="534" alt="image" src="https://github.com/user-attachments/assets/0e1c4a22-0eda-452e-b69c-0a86ac76b5fc" />
-
-
-| 단계 | 동작 |
-|------|------|
-| FETCH | pc_en 발생, ROM에서 명령어 가져오기 |
-| DECODE | 명령어 해독, IMM Extend |
-| EXECUTE | ALU 연산 및 비교, 다음 PC 값 계산, R/I/U/J/JL Type Write Back |
-| MEMORY | S-Type: RAM Write / IL-Type: RAM Read |
-| WRITE BACK | IL-Type Write Back |
 
 
 ### 중간 결과 저장 레지스터
