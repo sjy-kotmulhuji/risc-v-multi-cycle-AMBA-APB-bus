@@ -97,20 +97,6 @@ ARM AMBA 버스 중 하나로, 저속 주변장치 제어에 특화된 버스입
 
 <img width="605" height="447" alt="image" src="https://github.com/user-attachments/assets/4d055a48-281c-45fb-94c4-55feedb96759" />
 
-```
-CPU (RV32I)
-    │
-    ▼
-APB Master ← CPU 요청을 APB 프로토콜로 변환
-    │
-    ├──▶ BRAM  (0x1000_0000)
-    ├──▶ GPO   (0x2000_0000)
-    ├──▶ GPI   (0x2000_1000)
-    ├──▶ GPIO  (0x2000_2000)
-    ├──▶ FND   (0x2000_3000)
-    └──▶ UART  (0x2000_4000)
-```
-
 
 ### APB Master
 
@@ -156,12 +142,16 @@ addr[31:28] = 4'h2  →  addr[14:12]로 세부 선택
 
 ### Memory Mapped IO
 
-CPU가 메모리 주소로 주변장치 레지스터를 직접 읽고 쓰는 방식입니다.
+CPU가 메모리 주소로 주변장치 레지스터를 직접 읽고 쓰는 방식
 
-```c
-// 포인터 캐스팅으로 MMIO 레지스터 접근
-*(unsigned int *)(0x20000000) = 0xFF;  // GPO Write
-```
+**Slave Mapping**
+
+<img width="270" height="550" alt="image" src="https://github.com/user-attachments/assets/e495b3de-5df0-4868-b121-84c52b4d1c74" />
+
+
+
+**Register Mapping**
+<img width="1338" height="571" alt="image" src="https://github.com/user-attachments/assets/fd4020fd-5ba5-417e-a2a4-35957457ef3e" />
 
 ---
 
@@ -185,6 +175,11 @@ CPU 스택 및 데이터 저장 공간
 ### GPIO (General Purpose Input/Output)
 
 CPU와 물리적 장치(LED/Switch) 간 양방향 제어
+
+**Block Diagram**
+
+<img width="2646" height="1498" alt="image" src="https://github.com/user-attachments/assets/589c40aa-32ac-403a-861f-e55bf8490fd5" />
+
 
 | 레지스터 | 주소 오프셋 | 설명 |
 |---------|-----------|------|
