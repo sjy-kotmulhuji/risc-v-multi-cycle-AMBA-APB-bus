@@ -81,6 +81,12 @@ Instruction FETCH → Instruction DECODE → EXECUTE → MEMORY → WRITE BACK
 
 <img width="2085" height="1317" alt="image" src="https://github.com/user-attachments/assets/7cb9fde9-94ab-4d6c-a795-40f1c69e9901" />
 
+### RISC-V Multi Cycle Simulation
+
+- **S-Type Instruction** : RAM에 데이터 저장하는 동작 검증
+- **Load Instruction** : RAM에서 데이터 읽어오는 동작 검증
+- **JAL Instruction** : PC(Program Counter) 분기 동작 검증
+
 ---
 
 ## 🚌 APB Bus
@@ -88,6 +94,8 @@ Instruction FETCH → Instruction DECODE → EXECUTE → MEMORY → WRITE BACK
 ### APB(Advanced Peripheral Bus)란?
 
 ARM AMBA 버스 중 하나로, 저속 주변장치 제어에 특화된 버스입니다.
+
+<img width="605" height="447" alt="image" src="https://github.com/user-attachments/assets/4d055a48-281c-45fb-94c4-55feedb96759" />
 
 ```
 CPU (RV32I)
@@ -103,9 +111,6 @@ APB Master ← CPU 요청을 APB 프로토콜로 변환
     └──▶ UART  (0x2000_4000)
 ```
 
-**APB 특징**
-- AXI/AHB 대비 신호 수가 적고 구조가 단순
-- SETUP → ACCESS 2사이클 고정 트랜잭션
 
 ### APB Master
 
