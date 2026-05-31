@@ -33,10 +33,9 @@
 
 ## 🧱 전체 Block Diagram
 
-<img width="2450" height="1485" alt="image" src="https://github.com/user-attachments/assets/bea4b3d4-0f07-4d02-b3b3-fe530a108337" />
+<img width="2450" height="1485" alt="image" src="https://github.com/user-attachments/assets/d8bbe2fe-b980-49e5-9e15-c570fa04def9" />
 
-```
-```
+
 | 모듈 | 설명 |
 |------|------|
 | Instruction Memory (ROM) | 실행할 명령어 저장 |
@@ -54,7 +53,7 @@
 |--|-------------|-------------|
 | 처리 방식 | 5단계를 1 사이클에 모두 처리 | 5단계를 1 사이클에 1단계씩 처리 |
 | 클럭 속도 | 가장 긴 명령어 처리 속도에 맞춤 | 가장 오래 걸리는 단계에 맞춤 |
-| 클럭 효율 | 짧은 명령어도 가장 긴 명령어 <br> 속도에 맞추므로 낭비 | 명령어 별로 필요한 단계만 <br> 수행하므로 효율적(Load 명령 제외) |
+| 클럭 효율 | 짧은 명령어도 가장 긴 명령어 속도에 <br> 맞추므로 낭비 | 명령어 별로 필요한 단계만 수행하므로 효율적(Load 명령 제외) |
 | 하드웨어 구조 | 단순 | 중간 결과 저장 레지스터 + FSM 필요 |
 
 ### 명령어 처리 5단계
@@ -64,10 +63,9 @@ FETCH → DECODE → EXECUTE → MEMORY → WRITE BACK
 ```
 
 **명령어 Type별 동작 흐름도**
-<img width="870" height="526" alt="image" src="https://github.com/user-attachments/assets/fb1a038b-0a64-4bbc-9f97-7e1a6503a7cb" />
 
-```
-```
+<img width="890" height="534" alt="image" src="https://github.com/user-attachments/assets/0e1c4a22-0eda-452e-b69c-0a86ac76b5fc" />
+
 
 | 단계 | 동작 |
 |------|------|
@@ -77,29 +75,12 @@ FETCH → DECODE → EXECUTE → MEMORY → WRITE BACK
 | MEMORY | S-Type: RAM Write / IL-Type: RAM Read |
 | WRITE BACK | IL-Type Write Back |
 
-> R/I/U/J/JL Type은 EXECUTE 단계에서 Write Back까지 완료 후 바로 FETCH로 이동
-
-### FSM 구조
-
-```
-         ┌─────────────────────────────────┐
-         ▼                                 │
-      FETCH → DECODE → EXECUTE ──────────▶ FETCH  (R/I/U/J/JL)
-                                  │
-                                  ▼
-                               MEMORY → WRITE BACK → FETCH  (IL-Type)
-                                  │
-                                  ▼
-                               MEMORY → FETCH  (S-Type)
-```
 
 ### 중간 결과 저장 레지스터
 
 이전 단계의 데이터를 다음 클럭에서 사용하기 위해 각 단계 결과값을 저장하는 레지스터가 필요합니다.
 
-```
-DECODE ──[IMM_REG]──▶ EXECUTE ──[ALUout]──▶ MEMORY ──[MDR]──▶ WB
-```
+<img width="2085" height="1317" alt="image" src="https://github.com/user-attachments/assets/7cb9fde9-94ab-4d6c-a795-40f1c69e9901" />
 
 ---
 
