@@ -22,7 +22,8 @@
 
 ## 🧱 전체 Block Diagram
 
-<img width="2450" height="1485" alt="image" src="https://github.com/user-attachments/assets/d8bbe2fe-b980-49e5-9e15-c570fa04def9" />
+<img width="6966" height="3831" alt="image" src="https://github.com/user-attachments/assets/d08792da-077e-496d-94f0-1165ad0386ba" />
+
 
 
 | 모듈 | 설명 |
