@@ -1,17 +1,6 @@
 # RISC-V RV32I Multi Cycle CPU + APB Bus 설계
 
-> RV32I 기반 Multi Cycle CPU와 AMBA APB 프로토콜 기반 주변장치 설계 (SystemVerilog)
-
----
-
-## 👥 팀 구성
-
-| 이름 | 역할 |
-|------|------|
-| 송주연 | 프로젝트 개요, Multi Cycle CPU |
-| 윤지원 | APB Master |
-| 김민기 | RAM, GPIO |
-| 조준호 | FND, UART |
+> 온디바이스AI 시스템 반도체 설계 1기 | 송주연 | 대한상공회의소 서울기술교육센터 | 2026.03.31
 
 ---
 
