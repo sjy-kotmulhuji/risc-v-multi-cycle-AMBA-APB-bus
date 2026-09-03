@@ -46,6 +46,8 @@
 | 클럭 효율 | 짧은 명령어도 가장 긴 명령어 속도에 맞추므로 낭비 | 명령어 별로 필요한 단계만 수행하므로 효율적(Load 명령 제외) |
 | 하드웨어 구조 | 단순 | 중간 결과 저장 레지스터 + FSM 필요 |
 
+---
+
 ### 명령어 처리 5단계
 
 ```
@@ -60,16 +62,19 @@ Instruction FETCH → Instruction DECODE → EXECUTE → MEMORY → WRITE BACK
 | MEMORY | S-Type: RAM Write / IL-Type: RAM Read |
 | WRITE BACK | IL-Type Write Back |
 
-**명령어 Type별 동작 흐름도**
+---
 
-<img width="890" height="534" alt="image" src="https://github.com/user-attachments/assets/0e1c4a22-0eda-452e-b69c-0a86ac76b5fc" />
+<img width="800" height="730" alt="image" src="https://github.com/user-attachments/assets/ca3b9845-8270-4b75-aa8b-b3e24773d8d1" />
 
+---
 
 ### 중간 결과 저장 레지스터
 
 이전 단계의 데이터를 다음 클럭에서 사용하기 위해 각 단계 결과값을 저장하는 레지스터가 필요합니다.
 
-<img width="2085" height="1317" alt="image" src="https://github.com/user-attachments/assets/7cb9fde9-94ab-4d6c-a795-40f1c69e9901" />
+<img width="6852" height="3945" alt="image" src="https://github.com/user-attachments/assets/4f658880-fa45-449d-907c-fac5007ee4d9" />
+
+---
 
 ### RISC-V Multi Cycle Simulation
 
@@ -87,6 +92,7 @@ ARM AMBA 버스 중 하나로, 저속 주변장치 제어에 특화된 버스입
 
 <img width="605" height="447" alt="image" src="https://github.com/user-attachments/assets/4d055a48-281c-45fb-94c4-55feedb96759" />
 
+---
 
 ### APB Master
 
@@ -108,6 +114,8 @@ CPU와 APB Slave 사이의 브릿지 역할을 합니다.
 | Slave → CPU | `p_rdata_0~5` | 32 | 각 Slave 읽기 데이터 |
 | Slave → CPU | `p_ready_0~5` | 1 | 각 Slave 트랜잭션 완료 신호 |
 
+---
+
 **APB Master FSM**
 
 | 신호 | IDLE | SETUP | ACCESS |
@@ -115,6 +123,8 @@ CPU와 APB Slave 사이의 브릿지 역할을 합니다.
 | p_en | 0 | 0 | 1 |
 | p_sel | 0 | 1 | 1 |
 | decode_en | 0 | 1 | 1 |
+
+---
 
 **Address Decoder**
 
@@ -129,6 +139,7 @@ addr[31:28] = 4'h2  →  addr[14:12]로 세부 선택
     addr[14:12] = 3  →  FND  (p_sel_4)
     addr[14:12] = 4  →  UART (p_sel_5)
 ```
+---
 
 ### Memory Mapped IO
 
